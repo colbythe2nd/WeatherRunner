@@ -8,5 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/home")
 public class WeatherRunnerController {
+	
+	public String index() {
 
+
+		return "index";
+	}
 }
