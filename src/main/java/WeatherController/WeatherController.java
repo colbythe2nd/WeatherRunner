@@ -10,44 +10,42 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.soit.soitfaculty.model.Faculty;
-
 @Controller
-@RequestMapping("/Faculties")
+@RequestMapping("/Weather")
 public class WeatherController {
 	
 	
-	//Upload Faculty info
-	private List<Faculty> theFaculties;
+	//Upload Weather info
+	private List<Weather> theWeather;
 	
 	
 	@PostConstruct
 	private void loadData() {
 		
 		//Create Faculties
-		Faculty fac1 = new Faculty(1, "Kelly", "Miller", "Kelly@uc.edu");
-		Faculty fac2 = new Faculty(2, "Robert", "Lee", "Robert@uc.edu");
-		Faculty fac3 = new Faculty(3, "Laura", "West", "Laura@uc.edu");
+		Weather wea1 = new Weather(1, "Cincinnati", "75 degrees");
+		Weather wea2 = new Weather(2, "Tokyo", "68 degrees");
+		Weather wea3 = new Weather(3, "London", "77 degrees");
 		
 		//Create our List
-		theFaculties =  new ArrayList<>();
+		ArrayList WeatherList = new ArrayList<>();
 		
 		//Add to our List
-		theFaculties.add(fac1);
-		theFaculties.add(fac2);
-		theFaculties.add(fac3);
+		WeatherList.add(wea1);
+		WeatherList.add(wea2);
+		WeatherList.add(wea3);
 		
 	}
 	
 	//Mapping for "/list"
 	@GetMapping("/list")
-	public String listFaculties(Model theModel) {
+	public String listWeather(Model theModel) {
 		
 		
 		//Add Faculties to the Spring Model
-		theModel.addAttribute("faculties", theFaculties);
+		theModel.addAttribute("weather", WeatherList);
 		
-		return "list-faculties";
+		return "list-weather";
 	}
 
 }
