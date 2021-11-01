@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class WeatherRunnerController {
 
-	@RequestMapping("/WeatherRunner")
+	@RequestMapping("/")
 	public String start() {
 		
 		return "WeatherRunner";
