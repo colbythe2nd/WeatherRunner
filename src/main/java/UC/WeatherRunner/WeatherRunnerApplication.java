@@ -29,6 +29,7 @@ public class WeatherRunnerApplication {
 		return args -> {
 			Properties properties = restTemplate.getForObject(
 					"https://api.weather.gov/gridpoints/ILN/34,39/forecast", Properties.class);
+			assert properties != null;
 			log.info(properties.toString());
 		};
 	}
