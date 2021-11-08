@@ -2,6 +2,8 @@ package UC.WeatherRunner;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Arrays;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Forecast {
 
@@ -31,7 +33,7 @@ public class Forecast {
     public String toString() {
         return "Quote{" +
                 "updateTime='" + updateTime + '\'' +
-                ", periods=" + periods +
+                ", periods=" + Arrays.toString(periods) +
                 '}';
     }
 }

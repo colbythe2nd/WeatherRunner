@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .my-custom-scrollbar {
 position: relative;
 height: 200px;
@@ -10,4 +11,7 @@ display: block;
 body{
   margin-left:10%;
   margin-right:10%;
+}
+label {
+  display: none; /* Tentative. If it's needed later, remove this line so it makes show the label up */
 }
