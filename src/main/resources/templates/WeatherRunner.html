@@ -27,7 +27,11 @@
   <div class="tab-content" id="myTabContent">
     <!-- Tab 1: Put the weather API stuff here -->
     <div class="tab-pane fade show active p-3" id="checkWeather" role="tabpanel" aria-labelledby="home-tab">
-      This is where there's going to be an iframe with the weather map visible.
+      <!--Temporary fill-->
+      <a class="weatherwidget-io" href="https://forecast7.com/en/39d13n84d51/45219/?unit=us" data-label_1="CINCINNATI" data-label_2="WEATHER" data-theme="original" >CINCINNATI WEATHER</a>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+      </script>
     </div>
 
     <!-- Tab 2: Form for creating a new run and adding it to the database -->
@@ -73,11 +77,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>10/21/2021</td>
-              <td>5.0 km</td>
-              <td>1:00:00</td>
+            <tr th:each="logbookModel : ${logbook}">
+              <th scope="row" th:text="${logbookModel.id}"></th>
+              <td th:text="${logbookModel.date}"></td>
+              <td th:text="${logbookModel.distance}"></td>
+              <td th:text="${logbookModel.time}"></td>
             </tr>
 
 
