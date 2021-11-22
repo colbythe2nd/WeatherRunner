@@ -5,18 +5,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Forecast {
 
-    private String updateTime;
+    private String time;
     private Periods[] periods;
 
     public Forecast() {
     }
 
-    public String getUpdateTime() {
-        return updateTime;
+    public String getTime() {
+        return time;
     }
 
-    public void setUpdateTime(String date) {
-        this.updateTime = date;
+    public void setTime(String date) {
+        this.time = date;
     }
 
     public Periods[] getPeriods() {
@@ -26,11 +26,12 @@ public class Forecast {
     public void setPeriods(Periods[] value) {
         this.periods = value;
     }
-
+    
+    //returns toString of the quote with time and periods
     @Override
     public String toString() {
         return "Quote{" +
-                "updateTime='" + updateTime + '\'' +
+                "time='" + time + '\'' +
                 ", periods=" + periods +
                 '}';
     }
