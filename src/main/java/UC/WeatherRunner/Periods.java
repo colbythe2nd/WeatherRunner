@@ -27,6 +27,7 @@ public class Periods {
         this.quote = quote;
     }
 
+    //returns toString of the value with the id and the associated quote
     @Override
     public String toString() {
         return "Value{" +

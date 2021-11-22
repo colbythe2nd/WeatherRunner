@@ -14,6 +14,7 @@ public class Properties {
         this.forecast = forecast;
     }
 
+    //returns toString of the properties consisting of the forecast
     @Override
     public String toString() {
         return "Properties{" +
