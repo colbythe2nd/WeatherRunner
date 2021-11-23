@@ -7,7 +7,7 @@ public interface LogbookService {
 
     public List<Logbook> findAll();
 
-    public Logbook findById(int logbookID);
+    public Logbook findById(int theId);
 
     public void save(Logbook logbookToBeSaved);
 

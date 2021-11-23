@@ -13,15 +13,15 @@ import java.util.List;
 @RequestMapping("/WeatherRunner")
 public class WeatherRunnerController {
 
-	public LogbookService _logbookService;
+	public LogbookService logbookService;
 
 	@Autowired
-	public WeatherRunnerController (LogbookService paramLogbookService) { _logbookService = paramLogbookService;}
+	public WeatherRunnerController (LogbookService theLogbookService) { logbookService = theLogbookService;}
 
 	//mapping for "/list"
 	@GetMapping("/list")
 	public String listLogbooks(Model theModel){
-		List<Logbook> theLogbooks = _logbookService.findAll();
+		List<Logbook> theLogbooks = logbookService.findAll();
 
 		//add logbooks to the spring model
 		theModel.addAttribute("logbooks",theLogbooks);
@@ -38,10 +38,22 @@ public class WeatherRunnerController {
 		return "logbooks/create-logbook";
 	}
 
+	@GetMapping("/viewUpdateForm")
+	public String viewUpdateForm(@RequestParam("logbookId") int theId, Model theModel){
+
+		Logbook theLogbook = logbookService.findById(theId);
+
+
+		theModel.addAttribute("logbook",theLogbook);
+
+
+		return "logbooks/create-logbook";
+	}
+
 	@GetMapping("/delete")
-	public String delete(@RequestParam("logbookId") int specificLogbookId){
+	public String delete(@RequestParam("logbookId") int theId){
 		//remove logbook
-		_logbookService.deleteById(specificLogbookId);
+		logbookService.deleteById(theId);
 		return "redirect:/WeatherRunner/list";
 	}
 
@@ -49,7 +61,7 @@ public class WeatherRunnerController {
 	public String saveLogbook(@ModelAttribute("logbook") Logbook theLogbook){
 
 		//Register the logbook
-		_logbookService.save(theLogbook);
+		logbookService.save(theLogbook);
 
 		//Block duplicate submission for accidental page refresh
 		return "redirect:/WeatherRunner/list";

@@ -11,17 +11,17 @@ import java.util.Optional;
 @Service
 public class LogbookServiceImplementation implements LogbookService {
 
-    private LogbookRepository _logbookRepository;
+    private LogbookRepository logbookRepository;
 
     @Autowired
-    public LogbookServiceImplementation(LogbookRepository paramLogbookRepository) {_logbookRepository = paramLogbookRepository;}
+    public LogbookServiceImplementation(LogbookRepository theLogbookRepository) {logbookRepository = theLogbookRepository;}
 
     @Override
-    public List<Logbook> findAll() {return _logbookRepository.findAllById();}
+    public List<Logbook> findAll() {return logbookRepository.findAllById();}
 
     @Override
-    public Logbook findById(int specificLogbookID){
-        Optional<Logbook> logbookID = _logbookRepository.findById(specificLogbookID);
+    public Logbook findById(int theId){
+        Optional<Logbook> logbookID = logbookRepository.findById(theId);
 
         Logbook specificLogbook = null;
         if (logbookID.isPresent()){
@@ -29,7 +29,7 @@ public class LogbookServiceImplementation implements LogbookService {
         }
         else{
             //logbookID not found
-            throw new RuntimeException("The logbookID you've entered is invalid - " + specificLogbookID);
+            throw new RuntimeException("The logbookID you've entered is invalid - " + theId);
         }
 
         return specificLogbook;
@@ -37,10 +37,10 @@ public class LogbookServiceImplementation implements LogbookService {
     }
 
     @Override
-    public void save(Logbook specificLogbook) { _logbookRepository.save(specificLogbook); }
+    public void save(Logbook specificLogbook) { logbookRepository.save(specificLogbook); }
 
     @Override
-    public void deleteById(int logbookID) { _logbookRepository.deleteById(logbookID);}
+    public void deleteById(int logbookID) { logbookRepository.deleteById(logbookID);}
 
 
 
