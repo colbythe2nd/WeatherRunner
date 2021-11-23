@@ -1,5 +1,8 @@
 package UC.WeatherRunner;
 
+import UC.WeatherRunner.dao.LogbookRepository;
+import UC.WeatherRunner.model.Logbook;
+import UC.WeatherRunner.service.LogbookServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -12,13 +15,16 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class WeatherRunnerApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(WeatherRunnerApplication.class);
+	//private static final Logger log = LoggerFactory.getLogger(WeatherRunnerApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(WeatherRunnerApplication.class, args);
+
+
+
 	}
 
-	@Bean
+	/*@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();
 	}
@@ -31,5 +37,5 @@ public class WeatherRunnerApplication {
 					"https://api.weather.gov/gridpoints/ILN/34,39/forecast", Properties.class);
 			log.info(properties.toString());
 		};
-	}
+	}*/
 }
